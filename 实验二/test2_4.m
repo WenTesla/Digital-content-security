@@ -1,13 +1,22 @@
-%分别对含有秘密信息的载体图像进行攻击（缩放 resize、jpeg 压缩、低通滤波 filter2、中值滤波 medfilt2 等、剪切），计算其误码率。
+% 4.误码率
+% 攻击，选取上述实验生成的秘密信息载体bitset0
+% 原始秘密信息为上述实验生成的
 
-z1=bitset(hd,1,g_b_x);
-z2=imresize(z1,[100,100]);
-t2=logical(bitget(z2,1));
-t4=imresize(t2,[408,612]);
-[number,ratio]=biterr(t4,x2);
-disp(number);
-disp(ratio);
-
+% bitset0=imread("output.bmp");
+biset0=b2;
+bitset1=imresize(bitset0,[32,32]);
+bitset1=imresize(bitset1,[64,64]);
+bitset1=bitget(bitset1,1);
+zzz=imread('ezjm.jpg');
+% 计算误码率
+count = 0;
+for i=1:64*64
+    if bitset1(i) == zzz(i)
+        count = count + 1;
+    end
+end
+WUMA = count/(64*64);
+disp(WUMA);
 
 
 

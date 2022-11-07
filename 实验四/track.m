@@ -1,7 +1,7 @@
-%加噪攻击
+%% 加噪攻击
 r=normrnd(0.1,2,length(y2),2);
 v=y2+r;
-audiowrite('攻击后的音频.mp3',v,fs);
+audiowrite('cracked.wav',v,fs);
 figure;
 subplot(1,3,1);plot(x);title('原始音频');
 subplot(1,3,2);plot(y2);title('嵌入水印音频');

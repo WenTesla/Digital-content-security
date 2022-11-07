@@ -1,4 +1,5 @@
-%音频水印提取
+%% 音频水印提取
+
 y4=dct(y2)%对嵌入水印的图像矩阵 DCT;
 y4=reshape(y4,1,m*n);
 y3=reshape(y,1,m*n);

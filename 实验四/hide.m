@@ -1,11 +1,13 @@
+%% 水印嵌入
+
 %水印嵌入
-[x,fs]=audioread('音频文件名');%读入音频数据和采样率
+[x,fs]=audioread('坦克大战.mp3');%读入音频数据和采样率
 [m,n]=size(x); %行列数
 %DCT 一维变换
 y=dct(x);
 y1=reshape(y,1,m*n);%将矩阵 y 的元素返回到一个 1*mn 的矩阵
 %取 64*64 的水印图像
-w=imread('水印图像文件名');
+w=imread('1.jpg');
 w=rgb2gray(w);
 w=im2double(w);
 w=imresize(w,[64,64]);%变化尺寸
